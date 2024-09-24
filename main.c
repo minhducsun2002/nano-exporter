@@ -53,8 +53,8 @@ struct config {
 };
 
 const struct config default_config = {
-  .port = "9100",
-  .daemonize = true,
+  .port = "19300",
+  .daemonize = false,
   .pidfile = 0,
 };
 
@@ -240,6 +240,8 @@ static bool daemonize(struct config *cfg) {
       fclose(f);
     }
   }
+
+  fprintf(stderr, "Daemonized\n");
 
   return true;
 }

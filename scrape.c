@@ -154,6 +154,8 @@ scrape_server *scrape_listen(const char *port) {
     return 0;
   }
 
+  fprintf(stderr, "Listening on port %s\n", port);
+
   return srv;
 }
 
