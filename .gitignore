@@ -3,3 +3,4 @@
 /nano-exporter
 /test/*_test
 *.o
+.idea/
