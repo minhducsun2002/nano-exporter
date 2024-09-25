@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "scrape.h"
 #include "util.h"
@@ -59,6 +60,12 @@ static void stat_collect(scrape_req *req, void *ctx) {
   f = fopen(PATH("/proc/stat"), "r");
   if (!f)
     return;
+
+  // get time
+  time_t t = time(NULL);
+  double t_d = (double) (t);
+  
+  scrape_write(req, "node_time_seconds", 0, t_d);
 
   while (fgets_line(buf, sizeof buf, f)) {
     for (size_t m = 0; m < NMETRICS; m++) {
