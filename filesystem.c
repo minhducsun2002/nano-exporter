@@ -100,7 +100,7 @@ static void filesystem_collect(scrape_req *req, void *ctx_ptr) {
 
   // loop over /proc/mounts to get visible mounts
 
-  f = fopen(PATH("/proc/mounts"), "r");
+  f = fopen(PATH("/proc/1/mounts"), "r");
   if (!f)
     return;
 
