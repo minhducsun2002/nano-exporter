@@ -3,8 +3,8 @@ name: Push Docker image to GitHub Container Registry
 on:
   push:
     paths:
-      - '**/*.cs'
-      - '**/*.csproj'
+      - '**/*.c'
+      - '**/Makefile'
       - '.dockerignore'
       - 'Dockerfile'
       - '.github/workflows/main.yml'
