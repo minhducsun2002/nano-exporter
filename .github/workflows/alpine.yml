@@ -7,7 +7,7 @@ on:
       - '**/Makefile'
       - '.dockerignore'
       - 'Dockerfile.alpine'
-      - '.github/workflows/main.yml'
+      - '.github/workflows/alpine.yml'
   repository_dispatch:
   workflow_dispatch:
 
