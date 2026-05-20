@@ -1,0 +1,10 @@
+FROM alpine:3.23.4 as build
+RUN apk add --no-cache make gcc musl-dev
+WORKDIR /app
+COPY . .
+RUN make CFLAGS="-static" LDFLAGS="-static"
+
+FROM busybox:1.36.1-musl
+WORKDIR /app
+COPY --from=build /app/nano-exporter nano-exporter
+ENTRYPOINT /app/nano-exporter
